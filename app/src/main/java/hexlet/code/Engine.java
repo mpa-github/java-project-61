@@ -1,14 +1,18 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.CalcGame;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GCDGame;
+import hexlet.code.games.ProgressionGame;
+import hexlet.code.games.PrimeGame;
 
 import java.util.Scanner;
 
 public class Engine {
 
-    private final static Scanner SCANNER = new Scanner(System.in);
-    private final static String[] MENU = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"};
-    private final static int GAME_ROUNDS = 3;
+    private static final Scanner SCANNER = new Scanner(System.in);
+    private static final String[] MENU = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"};
+    private static final int GAME_ROUNDS = 3;
 
     // TODO (?)
     public static void run() {

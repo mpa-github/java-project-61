@@ -14,14 +14,13 @@ public class CalcGame {
             int a = RandomInteger.generateNumber(0, 99);
             int b = RandomInteger.generateNumber(0, 99);
             String expression = "%d %s %d".formatted(a, operator, b);
-            int correctResult;
-            switch (operator) {
-                case '+' -> correctResult = a + b;
-                case '-' -> correctResult = a - b;
-                case '*' -> correctResult = a * b;
+            int correctResult = switch (operator) {
+                case '+' -> a + b;
+                case '-' -> a - b;
+                case '*' -> a * b;
                 // TODO Exception?
-                default -> correctResult = 0;
-            }
+                default -> 0;
+            };
             gameData[i] = expression;
             gameData[i + 1] = String.valueOf(correctResult);
         }
