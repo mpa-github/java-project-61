@@ -10,12 +10,12 @@ public class ProgressionGame {
 
     public static String[] getGameData(int gameRounds) {
         String[] gameData = new String[2 * gameRounds];
-        int minPossibleLengthValue = 5;
-        int maxPossibleLengthValue = 10;
-        int minPossibleStepValue = 2;
-        int maxPossibleStephValue = 20;
-        int minPossibleFirstValue = 0;
-        int maxPossibleFirstValue = 30;
+        final int minPossibleLengthValue = 5;
+        final int maxPossibleLengthValue = 10;
+        final int minPossibleStepValue = 2;
+        final int maxPossibleStephValue = 20;
+        final int minPossibleFirstValue = 0;
+        final int maxPossibleFirstValue = 30;
         for (int i = 0; i < gameData.length; i += 2) {
             int progressionLength = RandomInteger.generateNumber(minPossibleLengthValue, maxPossibleLengthValue);
             int hidePosition = RandomInteger.generateNumber(1, progressionLength);

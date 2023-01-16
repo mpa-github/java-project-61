@@ -10,8 +10,8 @@ public class PrimeGame {
         String[] gameData = new String[2 * gameRounds];
         String answerYes = "yes";
         String answerNo = "no";
-        int minPossibleValue = 2;
-        int maxPossibleValue = 90;
+        final int minPossibleValue = 2;
+        final int maxPossibleValue = 90;
         for (int i = 0; i < gameData.length; i += 2) {
             int number = RandomInteger.generateNumber(minPossibleValue, maxPossibleValue);
             String correctAnswer = answerYes;

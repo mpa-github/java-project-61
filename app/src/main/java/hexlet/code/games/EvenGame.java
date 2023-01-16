@@ -10,8 +10,8 @@ public class EvenGame {
         String[] gameData = new String[2 * gameRounds];
         String answerYes = "yes";
         String answerNo = "no";
-        int minPossibleValue = 0;
-        int maxPossibleValue = 100;
+        final int minPossibleValue = 0;
+        final int maxPossibleValue = 100;
         for (int i = 0; i < gameData.length; i += 2) {
             int numberToGuess = RandomInteger.generateNumber(minPossibleValue, maxPossibleValue);
             String correctAnswer = (numberToGuess % 2 == 0) ? answerYes : answerNo;

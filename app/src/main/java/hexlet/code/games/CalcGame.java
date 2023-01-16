@@ -9,8 +9,8 @@ public class CalcGame {
     public static String[] getGameData(int gameRounds) {
         String[] gameData = new String[2 * gameRounds];
         char[] operators = {'+', '-', '*'};
-        int minPossibleValue = 0;
-        int maxPossibleValue = 100;
+        final int minPossibleValue = 0;
+        final int maxPossibleValue = 100;
         for (int i = 0; i < gameData.length; i += 2) {
             char operator = operators[RandomInteger.generateNumber(0, 2)];
             int a = RandomInteger.generateNumber(minPossibleValue, maxPossibleValue);
