@@ -10,8 +10,8 @@ public class RandomInteger {
     }
 
     public static int generateNumber() {
-        int from = 0;
-        int to = 100;
+        final int from = 0;
+        final int to = 100;
         return generateNumber(from, to);
     }
 }
