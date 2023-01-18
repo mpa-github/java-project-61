@@ -1,20 +1,21 @@
 package hexlet.code.games;
 
-import hexlet.code.utils.RandomInteger;
+import hexlet.code.Engine;
+import hexlet.code.utils.RandomIntegerUtils;
 
 public class CalcGame {
 
     public static final String RULES = "What is the result of the expression?";
+    private static final char[] OPERATORS = {'+', '-', '*'};
 
-    public static String[] getGameData(int gameRounds) {
-        String[] gameData = new String[2 * gameRounds];
-        char[] operators = {'+', '-', '*'};
+    public static void start() {
+        String[][] gameData = new String[Engine.GAME_ROUNDS][Engine.GAME_PARAMETERS];
         final int minPossibleValue = 0;
         final int maxPossibleValue = 100;
-        for (int i = 0; i < gameData.length; i += 2) {
-            char operator = operators[RandomInteger.generateNumber(0, 2)];
-            int a = RandomInteger.generateNumber(minPossibleValue, maxPossibleValue);
-            int b = RandomInteger.generateNumber(minPossibleValue, maxPossibleValue);
+        for (int i = 0; i < gameData.length; i++) {
+            char operator = OPERATORS[RandomIntegerUtils.generateNumber(0, 2)];
+            int a = RandomIntegerUtils.generateNumber(minPossibleValue, maxPossibleValue);
+            int b = RandomIntegerUtils.generateNumber(minPossibleValue, maxPossibleValue);
             String expression = "%d %s %d".formatted(a, operator, b);
             int correctResult = switch (operator) {
                 case '+' -> a + b;
@@ -23,9 +24,9 @@ public class CalcGame {
                 // TODO Exception?
                 default -> 0;
             };
-            gameData[i] = expression;
-            gameData[i + 1] = String.valueOf(correctResult);
+            gameData[i][0] = expression;
+            gameData[i][1] = String.valueOf(correctResult);
         }
-        return gameData;
+        Engine.run(RULES, gameData);
     }
 }

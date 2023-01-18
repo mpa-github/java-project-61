@@ -2,7 +2,7 @@ package hexlet.code.utils;
 
 import java.util.Random;
 
-public class RandomInteger {
+public class RandomIntegerUtils {
 
     public static int generateNumber(int from, int to) {
         Random random = new Random();
