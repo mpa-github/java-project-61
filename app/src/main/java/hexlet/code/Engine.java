@@ -8,9 +8,9 @@ public class Engine {
     public static void run(String rules, String[][] gameData) {
         String username = App.greeting();
         System.out.println(rules);
-        for (String[] parameter : gameData) {
-            String question = parameter[0];
-            String correctAnswer = parameter[1];
+        for (String[] parameterPair : gameData) {
+            String question = parameterPair[0];
+            String correctAnswer = parameterPair[1];
             System.out.printf("Question: %s%n", question);
             String userAnswer = App.SCANNER.next();
             if (userAnswer.equals(correctAnswer)) {

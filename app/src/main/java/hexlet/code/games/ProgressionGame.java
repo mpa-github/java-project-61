@@ -21,21 +21,35 @@ public class ProgressionGame {
             int progressionLength = RandomIntegerUtils.generateNumber(minPossibleLengthValue, maxPossibleLengthValue);
             int hidePosition = RandomIntegerUtils.generateNumber(1, progressionLength);
             int stepOfProgression = RandomIntegerUtils.generateNumber(minPossibleStepValue, maxPossibleStephValue);
-            int nextNumber = RandomIntegerUtils.generateNumber(minPossibleFirstValue, maxPossibleFirstValue);
-            int correctAnswer = 0;
-            StringJoiner question = new StringJoiner(" ");
-            for (int j = 1; j <= progressionLength; j++) {
-                if (j == hidePosition) {
-                    question.add("..");
-                    correctAnswer = nextNumber;
-                } else {
-                    question.add(String.valueOf(nextNumber));
-                }
-                nextNumber += stepOfProgression;
-            }
-            gameData[i][0] = question.toString();
+            int firstElement = RandomIntegerUtils.generateNumber(minPossibleFirstValue, maxPossibleFirstValue);
+            int[] progression = getProgressionElements(progressionLength, stepOfProgression, firstElement);
+            int correctAnswer = progression[hidePosition - 1];
+            String question = buildProgressionString(progression, hidePosition);
+            gameData[i][0] = question;
             gameData[i][1] = String.valueOf(correctAnswer);
         }
         Engine.run(RULES, gameData);
+    }
+
+    private static String buildProgressionString(int[] progression, int hidePosition) {
+        StringJoiner stringJoiner = new StringJoiner(" ");
+        for (int j = 0; j < progression.length; j++) {
+            if (j == hidePosition - 1) {
+                stringJoiner.add("..");
+            } else {
+                stringJoiner.add(String.valueOf(progression[j]));
+            }
+        }
+        return stringJoiner.toString();
+    }
+
+    private static int[] getProgressionElements(int length, int step, int firstElement) {
+        int next = firstElement;
+        int[] result = new int[length];
+        for (int i = 0; i < length; i++) {
+            result[i] = next;
+            next += step;
+        }
+        return result;
     }
 }
