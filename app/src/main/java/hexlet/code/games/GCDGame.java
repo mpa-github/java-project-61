@@ -6,14 +6,14 @@ import hexlet.code.utils.RandomIntegerUtils;
 public class GCDGame {
 
     public static final String RULES = "Find the greatest common divisor of given numbers.";
+    private static final int MIN_POSSIBLE_VALUE = 0;
+    private static final int MAX_POSSIBLE_VALUE = 100;
 
     public static void start() {
         String[][] gameData = new String[Engine.GAME_ROUNDS][Engine.GAME_PARAMETERS];
-        final int minPossibleValue = 0;
-        final int maxPossibleValue = 100;
         for (int i = 0; i < gameData.length; i++) {
-            int a = RandomIntegerUtils.generateNumber(minPossibleValue, maxPossibleValue);
-            int b = RandomIntegerUtils.generateNumber(minPossibleValue, maxPossibleValue);
+            int a = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
+            int b = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
             String question = "%d %d".formatted(a, b);
             int correctAnswer = getGreatestDivisor(a, b);
             gameData[i][0] = question;

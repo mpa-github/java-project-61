@@ -8,21 +8,21 @@ import java.util.StringJoiner;
 public class ProgressionGame {
 
     public static final String RULES = "What number is missing in the progression?";
+    private static final int MIN_POSSIBLE_LENGTH = 5;
+    private static final int MAX_POSSIBLE_LENGTH = 10;
+    private static final int MIN_POSSIBLE_STEP = 2;
+    private static final int MAX_POSSIBLE_STEP = 20;
+    private static final int MIN_POSSIBLE_FIRST_VALUE = 0;
+    private static final int MAX_POSSIBLE_FIRST_VALUE = 30;
 
     public static void start() {
         String[][] gameData = new String[Engine.GAME_ROUNDS][Engine.GAME_PARAMETERS];
-        final int minPossibleLengthValue = 5;
-        final int maxPossibleLengthValue = 10;
-        final int minPossibleStepValue = 2;
-        final int maxPossibleStephValue = 20;
-        final int minPossibleFirstValue = 0;
-        final int maxPossibleFirstValue = 30;
         for (int i = 0; i < gameData.length; i++) {
-            int progressionLength = RandomIntegerUtils.generateNumber(minPossibleLengthValue, maxPossibleLengthValue);
+            int progressionLength = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_LENGTH, MAX_POSSIBLE_LENGTH);
             int hidePosition = RandomIntegerUtils.generateNumber(1, progressionLength);
-            int stepOfProgression = RandomIntegerUtils.generateNumber(minPossibleStepValue, maxPossibleStephValue);
-            int firstElement = RandomIntegerUtils.generateNumber(minPossibleFirstValue, maxPossibleFirstValue);
-            int[] progression = getProgressionElements(progressionLength, stepOfProgression, firstElement);
+            int stepOfProgression = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_STEP, MAX_POSSIBLE_STEP);
+            int firstElement = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_FIRST_VALUE, MAX_POSSIBLE_FIRST_VALUE);
+            int[] progression = generateProgression(progressionLength, stepOfProgression, firstElement);
             int correctAnswer = progression[hidePosition - 1];
             String question = buildProgressionString(progression, hidePosition);
             gameData[i][0] = question;
@@ -43,7 +43,7 @@ public class ProgressionGame {
         return stringJoiner.toString();
     }
 
-    private static int[] getProgressionElements(int length, int step, int firstElement) {
+    private static int[] generateProgression(int length, int step, int firstElement) {
         int next = firstElement;
         int[] result = new int[length];
         for (int i = 0; i < length; i++) {

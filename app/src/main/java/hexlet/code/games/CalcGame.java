@@ -6,16 +6,16 @@ import hexlet.code.utils.RandomIntegerUtils;
 public class CalcGame {
 
     public static final String RULES = "What is the result of the expression?";
+    private static final int MIN_POSSIBLE_VALUE = 0;
+    private static final int MAX_POSSIBLE_VALUE = 100;
     private static final char[] OPERATORS = {'+', '-', '*'};
 
     public static void start() {
         String[][] gameData = new String[Engine.GAME_ROUNDS][Engine.GAME_PARAMETERS];
-        final int minPossibleValue = 0;
-        final int maxPossibleValue = 100;
         for (int i = 0; i < gameData.length; i++) {
             char operator = OPERATORS[RandomIntegerUtils.generateNumber(0, 2)];
-            int a = RandomIntegerUtils.generateNumber(minPossibleValue, maxPossibleValue);
-            int b = RandomIntegerUtils.generateNumber(minPossibleValue, maxPossibleValue);
+            int a = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
+            int b = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
             String expression = "%d %s %d".formatted(a, operator, b);
             int correctResult = switch (operator) {
                 case '+' -> a + b;
