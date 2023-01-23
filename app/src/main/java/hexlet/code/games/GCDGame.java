@@ -24,7 +24,7 @@ public class GCDGame {
 
     private static int getGreatestDivisor(int a, int b) {
         int result = 1;
-        int currentDivisor = Math.min(a, b);
+        int currentDivisor = (a == 0 || b == 0) ? Math.max(a, b) : Math.min(a, b);
         while (currentDivisor > 0) {
             if (a % currentDivisor == 0 && b % currentDivisor == 0) {
                 result = currentDivisor;
