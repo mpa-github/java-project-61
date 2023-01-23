@@ -13,16 +13,12 @@ public class EvenGame {
 
     public static void startEvenGame() {
         String[][] gameData = new String[Engine.GAME_ROUNDS][Engine.GAME_PARAMETERS];
-        for (int i = 0; i < Engine.GAME_ROUNDS; i++) {
+        for (int i = 0; i < gameData.length; i++) {
             int number = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
-            String correctAnswer = isEven(number) ? YES : NO;
+            String correctAnswer = (number % 2 == 0) ? YES : NO;
             gameData[i][0] = String.valueOf(number);
             gameData[i][1] = correctAnswer;
         }
         Engine.run(RULES, gameData);
-    }
-
-    private static boolean isEven(int number) {
-        return number % 2 == 0;
     }
 }
