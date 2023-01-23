@@ -10,7 +10,7 @@ public class CalcGame {
     private static final int MAX_POSSIBLE_VALUE = 100;
     private static final char[] OPERATORS = {'+', '-', '*'};
 
-    public static void start() {
+    public static void startCalcGame() {
         String[][] gameData = new String[Engine.GAME_ROUNDS][Engine.GAME_PARAMETERS];
         for (int i = 0; i < gameData.length; i++) {
             char operator = OPERATORS[RandomIntegerUtils.generateNumber(0, 2)];

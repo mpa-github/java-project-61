@@ -11,7 +11,7 @@ public class PrimeGame {
     private static final String YES = "yes";
     private static final String NO = "no";
 
-    public static void start() {
+    public static void startPrimeGame() {
         String[][] gameData = new String[Engine.GAME_ROUNDS][Engine.GAME_PARAMETERS];
         for (int i = 0; i < gameData.length; i++) {
             int number = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
