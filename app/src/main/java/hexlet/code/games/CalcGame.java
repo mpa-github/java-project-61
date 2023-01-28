@@ -13,20 +13,27 @@ public class CalcGame {
     public static void startCalcGame() {
         String[][] gameData = new String[Engine.GAME_ROUNDS][Engine.GAME_PARAMETERS];
         for (int i = 0; i < gameData.length; i++) {
-            char operator = OPERATORS[RandomIntegerUtils.generateNumber(0, 2)];
-            int a = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
-            int b = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
-            String expression = "%d %s %d".formatted(a, operator, b);
-            int correctResult = switch (operator) {
-                case '+' -> a + b;
-                case '-' -> a - b;
-                case '*' -> a * b;
-                // TODO Exception?
-                default -> 0;
-            };
-            gameData[i][0] = expression;
-            gameData[i][1] = String.valueOf(correctResult);
+            String[] paramPair = generateGameParameterPair();
+            gameData[i][0] = paramPair[0];
+            gameData[i][1] = paramPair[1];
         }
         Engine.run(RULES, gameData);
+    }
+
+    private static String[] generateGameParameterPair() {
+        String[] paramPair = new String[2];
+        char operator = OPERATORS[RandomIntegerUtils.generateNumber(0, 2)];
+        int a = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
+        int b = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
+        String expression = "%d %s %d".formatted(a, operator, b);
+        int correctResult = switch (operator) {
+            case '+' -> a + b;
+            case '-' -> a - b;
+            case '*' -> a * b;
+            default -> throw new UnsupportedOperationException("CalcGame: Invalid operation!");
+        };
+        paramPair[0] = expression;
+        paramPair[1] = String.valueOf(correctResult);
+        return paramPair;
     }
 }

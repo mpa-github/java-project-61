@@ -10,10 +10,8 @@ import java.util.Scanner;
 
 public class App {
 
-    public static final Scanner SCANNER = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
     private static final String START_MENU_MESSAGE = "Please enter the game number and press Enter.";
-    private static final String WELCOME_MESSAGE = "Welcome to the Brain Games!";
-    private static final String USER_NAME_REQUEST_MESSAGE = "May I have your name? ";
     private static final String USER_CHOICE_REQUEST_MESSAGE = "Your choice: ";
     private static final String[] MENU = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"};
 
@@ -25,7 +23,7 @@ public class App {
         menuChoice = SCANNER.nextLine();
         System.out.println();
         switch (menuChoice) {
-            case "1" -> greeting();
+            case "1" -> Cli.greeting();
             case "2" -> EvenGame.startEvenGame();
             case "3" -> CalcGame.startCalcGame();
             case "4" -> GCDGame.startGCDGame();
@@ -35,14 +33,6 @@ public class App {
             default -> System.out.println("Invalid menu choice!");
         }
         SCANNER.close();
-    }
-
-    public static String greeting() {
-        System.out.println(WELCOME_MESSAGE);
-        System.out.print(USER_NAME_REQUEST_MESSAGE);
-        String username = SCANNER.next();
-        System.out.printf("Hello, %s!%n", username);
-        return username;
     }
 
     private static void showGameChoiceMenu() {
