@@ -7,4 +7,3 @@ run: # Run app
 update-dist: # Build app
 	./gradlew clean
 	./gradlew installDist
-
