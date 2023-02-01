@@ -17,8 +17,6 @@ Incorrect results end the game. <br>
 ["Progression" - Searching for missing numbers.](https://asciinema.org/a/zYpfJaQpJWgUdcICdxnmJpZR0) <br>
 ["Prime" - Definition of a prime number.](https://asciinema.org/a/w3ampu23wW4vo4l1qrCrOORYY) <br>
 
------
-
 ## Unix
 ### Setup
 
