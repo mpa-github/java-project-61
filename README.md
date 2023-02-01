@@ -23,7 +23,7 @@ Incorrect results end the game. <br>
 ### Setup
 
 ```sh
-make -C app run
+make -C app build
 ```
 
 ### Start
