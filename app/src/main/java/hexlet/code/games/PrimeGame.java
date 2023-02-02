@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.utils.RandomIntegerUtils;
+import hexlet.code.utils.MathUtils;
 
 public class PrimeGame {
 
@@ -23,19 +23,10 @@ public class PrimeGame {
 
     private static String[] generateGameParameterPair() {
         String[] paramPair = new String[2];
-        int number = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
-        String correctAnswer = isPrime(number) ? YES : NO;
+        int number = MathUtils.generateRandom(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
+        String correctAnswer = MathUtils.isPrime(number) ? YES : NO;
         paramPair[0] = String.valueOf(number);
         paramPair[1] = correctAnswer;
         return paramPair;
-    }
-
-    private static boolean isPrime(int number) {
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
     }
 }

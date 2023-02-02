@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.utils.RandomIntegerUtils;
+import hexlet.code.utils.MathUtils;
 
 public class EvenGame {
 
@@ -23,8 +23,8 @@ public class EvenGame {
 
     private static String[] generateGameParameterPair() {
         String[] paramPair = new String[2];
-        int number = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
-        String correctAnswer = (number % 2 == 0) ? YES : NO;
+        int number = MathUtils.generateRandom(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
+        String correctAnswer = MathUtils.isEven(number) ? YES : NO;
         paramPair[0] = String.valueOf(number);
         paramPair[1] = correctAnswer;
         return paramPair;

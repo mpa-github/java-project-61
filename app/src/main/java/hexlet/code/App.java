@@ -32,7 +32,6 @@ public class App {
             case "0" -> System.out.println("Exit...");
             default -> System.out.println("Invalid menu choice!");
         }
-        SCANNER.close();
     }
 
     private static void showGameChoiceMenu() {

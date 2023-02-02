@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.utils.RandomIntegerUtils;
+import hexlet.code.utils.MathUtils;
 
 import java.util.StringJoiner;
 
@@ -27,11 +27,12 @@ public class ProgressionGame {
 
     private static String[] generateGameParameterPair() {
         String[] paramPair = new String[2];
-        int progressionLength = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_LENGTH, MAX_POSSIBLE_LENGTH);
-        int hidePositionIndex = RandomIntegerUtils.generateNumber(0, progressionLength - 1);
-        int stepOfProgression = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_STEP, MAX_POSSIBLE_STEP);
-        int firstElement = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_FIRST_VALUE, MAX_POSSIBLE_FIRST_VALUE);
-        int[] progression = generateProgression(progressionLength, stepOfProgression, firstElement);
+        int progressionLength = MathUtils.generateRandom(MIN_POSSIBLE_LENGTH, MAX_POSSIBLE_LENGTH);
+        int hidePositionIndex = MathUtils.generateRandom(0, progressionLength - 1);
+        int stepOfProgression = MathUtils.generateRandom(MIN_POSSIBLE_STEP, MAX_POSSIBLE_STEP);
+        int firstElement = MathUtils.generateRandom(MIN_POSSIBLE_FIRST_VALUE, MAX_POSSIBLE_FIRST_VALUE);
+        int[] progression = MathUtils.generateProgression(progressionLength, stepOfProgression, firstElement);
+
         int correctAnswer = progression[hidePositionIndex];
         String question = buildProgressionString(progression, hidePositionIndex);
         paramPair[0] = question;
@@ -49,15 +50,5 @@ public class ProgressionGame {
             }
         }
         return stringJoiner.toString();
-    }
-
-    private static int[] generateProgression(int length, int step, int firstElement) {
-        int next = firstElement;
-        int[] result = new int[length];
-        for (int i = 0; i < length; i++) {
-            result[i] = next;
-            next += step;
-        }
-        return result;
     }
 }

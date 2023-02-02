@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.utils.RandomIntegerUtils;
+import hexlet.code.utils.MathUtils;
 
 public class GCDGame {
 
@@ -21,26 +21,12 @@ public class GCDGame {
 
     private static String[] generateGameParameterPair() {
         String[] paramPair = new String[2];
-        int a = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
-        int b = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
+        int a = MathUtils.generateRandom(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
+        int b = MathUtils.generateRandom(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
         String question = "%d %d".formatted(a, b);
-        int correctAnswer = getGreatestDivisor(a, b);
+        int correctAnswer = MathUtils.getGreatestDivisor(a, b);
         paramPair[0] = question;
         paramPair[1] = String.valueOf(correctAnswer);
         return paramPair;
-    }
-
-    private static int getGreatestDivisor(int a, int b) {
-        boolean hasZero = (a == 0 || b == 0);
-        int result = 0;
-        int currentDivisor = hasZero ? Math.max(a, b) : Math.min(a, b);
-        while (currentDivisor > 0) {
-            if (a % currentDivisor == 0 && b % currentDivisor == 0) {
-                result = currentDivisor;
-                break;
-            }
-            currentDivisor--;
-        }
-        return result;
     }
 }

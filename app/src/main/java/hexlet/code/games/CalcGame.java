@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.utils.RandomIntegerUtils;
+import hexlet.code.utils.MathUtils;
 
 public class CalcGame {
 
@@ -22,9 +22,9 @@ public class CalcGame {
 
     private static String[] generateGameParameterPair() {
         String[] paramPair = new String[2];
-        char operator = OPERATORS[RandomIntegerUtils.generateNumber(0, 2)];
-        int a = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
-        int b = RandomIntegerUtils.generateNumber(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
+        char operator = OPERATORS[MathUtils.generateRandom(0, 2)];
+        int a = MathUtils.generateRandom(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
+        int b = MathUtils.generateRandom(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
         String expression = "%d %s %d".formatted(a, operator, b);
         int correctResult = switch (operator) {
             case '+' -> a + b;
