@@ -24,15 +24,17 @@ public class MathUtils {
         int result = 0;
         int currentDivisor = (a == 0 || b == 0) ? Math.max(a, b) : Math.min(a, b);
         while (currentDivisor > 0) {
-            boolean hasReminderOfA = a % currentDivisor == 0;
-            boolean hasReminderOfB = b % currentDivisor == 0;
-            if (!hasReminderOfA && !hasReminderOfB) {
+            if (isIntegerDivision(a, currentDivisor) && isIntegerDivision(b, currentDivisor)) {
                 result = currentDivisor;
                 break;
             }
             currentDivisor--;
         }
         return result;
+    }
+
+    public static boolean isIntegerDivision(int a, int b) {
+        return a % b == 0;
     }
 
     public static int[] generateProgression(int length, int step, int firstElement) {
