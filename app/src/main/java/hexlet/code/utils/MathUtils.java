@@ -22,7 +22,12 @@ public class MathUtils {
 
     public static int getGreatestDivisor(int a, int b) {
         int result = 0;
-        int currentDivisor = (a == 0 || b == 0) ? Math.max(a, b) : Math.min(a, b);
+        int currentDivisor;
+        if (a == 0 || b == 0) {
+            currentDivisor = Math.max(a, b);
+        } else {
+            currentDivisor = Math.min(a, b);
+        }
         while (currentDivisor > 0) {
             if (a % currentDivisor == 0 && b % currentDivisor == 0) {
                 result = currentDivisor;
