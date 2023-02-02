@@ -25,8 +25,7 @@ public class MathUtils {
         int currentDivisor = (a == 0 || b == 0) ? Math.max(a, b) : Math.min(a, b);
         while (currentDivisor > 0) {
             if (isIntegerDivision(a, currentDivisor) && isIntegerDivision(b, currentDivisor)) {
-                result = currentDivisor;
-                break;
+                return currentDivisor;
             }
             currentDivisor--;
         }
