@@ -21,7 +21,6 @@ public class MathUtils {
     }
 
     public static int getGreatestDivisor(int a, int b) {
-        int result = 0;
         int currentDivisor = (a == 0 || b == 0) ? Math.max(a, b) : Math.min(a, b);
         while (currentDivisor > 0) {
             if (isIntegerDivision(a, currentDivisor) && isIntegerDivision(b, currentDivisor)) {
@@ -29,7 +28,7 @@ public class MathUtils {
             }
             currentDivisor--;
         }
-        return result;
+        return currentDivisor;
     }
 
     public static boolean isIntegerDivision(int a, int b) {
