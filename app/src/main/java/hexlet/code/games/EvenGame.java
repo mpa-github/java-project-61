@@ -11,22 +11,14 @@ public class EvenGame {
     private static final String YES = "yes";
     private static final String NO = "no";
 
-    public static void startEvenGame() {
+    public static void start() {
         String[][] gameData = new String[Engine.GAME_ROUNDS][Engine.GAME_PARAMETERS];
         for (int i = 0; i < gameData.length; i++) {
-            String[] paramPair = generateGameParameterPair();
-            gameData[i][0] = paramPair[0];
-            gameData[i][1] = paramPair[1];
+            int number = MathUtils.generateRandom(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
+            String correctAnswer = MathUtils.isEven(number) ? YES : NO;
+            gameData[i][0] = String.valueOf(number);
+            gameData[i][1] = correctAnswer;
         }
         Engine.run(RULES, gameData);
-    }
-
-    private static String[] generateGameParameterPair() {
-        String[] paramPair = new String[2];
-        int number = MathUtils.generateRandom(MIN_POSSIBLE_VALUE, MAX_POSSIBLE_VALUE);
-        String correctAnswer = MathUtils.isEven(number) ? YES : NO;
-        paramPair[0] = String.valueOf(number);
-        paramPair[1] = correctAnswer;
-        return paramPair;
     }
 }

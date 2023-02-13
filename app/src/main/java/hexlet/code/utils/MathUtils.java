@@ -45,14 +45,14 @@ public class MathUtils {
         return result;
     }
 
-    public static int generateRandom(int from, int to) {
+    public static int generateRandom(int min, int max) {
         Random random = new Random();
-        return random.nextInt(from, to + 1);
+        return random.nextInt(min, max + 1);
     }
 
     public static int generateRandom() {
-        final int from = 0;
-        final int to = 100;
-        return generateRandom(from, to);
+        final int min = 0;
+        final int max = 100;
+        return generateRandom(min, max);
     }
 }
