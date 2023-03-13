@@ -7,7 +7,7 @@ Incorrect results end the game. <br>
 
 ### Project badges status:
 [![Actions Status](https://github.com/mpa-github/java-project-61/workflows/hexlet-check/badge.svg)](https://github.com/mpa-github/java-project-61/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/58aa725c449b5d5a4f97/maintainability)](https://codeclimate.com/github/mpa-github/java-project-61/maintainability) <br>
+[![Maintainability](https://api.codeclimate.com/v1/badges/3cc1b86e97bf8784502c/maintainability)](https://codeclimate.com/github/mpa-github/java-project-61/maintainability) <br>
 
 ## Games demonstration:  <br>
 ["Greet" - User greeting.](https://asciinema.org/a/nsSQBzWs2ITJcPjsJfTgw6gUY) <br>
